@@ -1,0 +1,19 @@
+<!--
+ Copyright (c) 2017 Mirantis Inc., Enea AB and others.
+
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Apache License, Version 2.0
+ which accompanies this distribution, and is available at
+ http://www.apache.org/licenses/LICENSE-2.0
+-->
+<network>
+  <name>${bridge_name}</name>
+  <bridge name="${bridge_name}"/>
+  <forward mode="nat"/>
+  <ip address="${bridge_ip%.*}.1" netmask="255.255.255.0">
+    <dhcp>
+      <range start="${bridge_ip%.*}.2" end="${bridge_ip%.*}.254"/>
+    </dhcp>
+  </ip>
+</network>
+
